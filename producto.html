@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontEnd Store</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <a href="./index.html">
+            <img class="header__logo" src="img/logo.png" alt="Logotipo">
+        </a>
+    </header>
+
+    <nav class="navegacion">
+        <a class="navegacion__enlace navegacion__enlace--activo" href="./index.html">Tienda</a>
+        <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+    </nav>
+
+    <main class="contenedor">
+        <!-- Agrega un contenedor para el nombre del producto -->
+        <div id="nombreProductoContainer">            
+        </div>
+    
+        <div class="camisa">
+            <img class="camisa__imagen" src="img/3.jpg" alt="Imagen del Producto">
+    
+            <div class="camisa__contenido">
+                <!-- Agrega un mensaje de advertencia -->
+                <div id="advertencia" style="color: blue; display: none;">Por favor, ingresa una cantidad mayor a cero.</div>
+                <p>Maecenas consectetur ultricies mi vel venenatis. Curabitur risus tellus, congue non tellus at, semper dapibus turpis. Duis pellentesque, risus sit amet placerat porttitor, tortor augue volutpat ante, non dignissim odio ligula at arcu.</p>
+                <div class="formulario">
+                    <label for="cantidadInput">Cantidad:</label>
+                    <select class="formulario__campo" id="cantidadInput">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>                       
+                    </select>
+                    <button class="formulario__submit" onclick="validarCantidad()">Enviar a WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p class="footer__texto">Front End Store - Todos los derechos Reservados 2022.</p>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
