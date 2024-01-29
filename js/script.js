@@ -1,15 +1,13 @@
 // Js/script.js
 document.addEventListener('DOMContentLoaded', function () {
-    // Obtiene el nombre del producto de la URL
-    var nombreProducto = localStorage.getItem('nombreProducto');
-
-    // Obtiene el contenedor del nombre del producto
+    var nombreProducto = localStorage.getItem('nombreProducto') || obtenerNombreProductoDesdeURL();
     var nombreProductoContainer = document.getElementById('nombreProductoContainer');
+    var descripcionProductoContainer = document.getElementById('descripcionProducto');
 
-    // Verifica si el contenedor existe antes de intentar establecer su contenido
     if (nombreProductoContainer) {
         nombreProductoContainer.innerHTML = '<h1>' + (nombreProducto || 'Producto no especificado') + '</h1>';
     }
+    mostrarDescripcion(nombreProducto);
 });
 
 function validarCantidad() {
@@ -30,8 +28,23 @@ function validarCantidad() {
 
 function mostrarDescripcion(nombre) {
     var descripcion = document.getElementById('descripcionProducto');
-    descripcion.style.display = 'block';
-    descripcion.innerText = obtenerDescripcion(nombre);
+    var descripciones = {
+        'Polera': 'Descripción de la polera: Maecenas consectetur ultricies mi vel venenatis. Curabitur risus tellus, congue non tellus at, semper dapibus turpis. Duis pellentesque, risus sit amet placerat porttitor, tortor augue volutpat ante, non dignissim odio ligula at arcu.',
+        'Short': 'Descripción del short: Otra descripción para React JS',
+        // Agrega más descripciones según sea necesario
+    };
+
+    if (descripcion && descripciones[nombre]) {
+        descripcion.innerHTML = '<p>' + descripciones[nombre] + '</p>';
+        descripcion.style.display = 'block';
+    } else {
+        descripcion.style.display = 'none';
+    }
+}
+
+function obtenerNombreProductoDesdeURL() {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('nombre');
 }
 
 function ocultarDescripcion() {
@@ -48,6 +61,9 @@ function obtenerDescripcion(nombre) {
 
     return descripciones[nombre] || 'Descripción no disponible';
 }
+
+
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -59,6 +75,7 @@ function getParameterByName(name, url) {
     console.log('Valor del parámetro ' + name + ':', paramName);
     return paramName;
 }
+
 
 function irAProducto(nombreProducto) {
     // Guarda el nombre del producto en localStorage

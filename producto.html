@@ -25,14 +25,17 @@
         <!-- Agrega un contenedor para el nombre del producto -->
         <div id="nombreProductoContainer">            
         </div>
-    
+        
         <div class="camisa">
             <img class="camisa__imagen" src="img/3.jpg" alt="Imagen del Producto">
-    
+        
             <div class="camisa__contenido">
                 <!-- Agrega un mensaje de advertencia -->
                 <div id="advertencia" style="color: blue; display: none;">Por favor, ingresa una cantidad mayor a cero.</div>
-                <p>Maecenas consectetur ultricies mi vel venenatis. Curabitur risus tellus, congue non tellus at, semper dapibus turpis. Duis pellentesque, risus sit amet placerat porttitor, tortor augue volutpat ante, non dignissim odio ligula at arcu.</p>
+                
+                <!-- Contenedor para la descripción del producto -->
+                <div id="descripcionProducto" style="display: none;"></div>
+        
                 <div class="formulario">
                     <label for="cantidadInput">Cantidad:</label>
                     <select class="formulario__campo" id="cantidadInput">
